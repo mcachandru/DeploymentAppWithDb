@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DeploymentAppWithDb.Migrations
 {
     [DbContext(typeof(ProjectContext))]
-    [Migration("20230128154006_VendorName")]
+    [Migration("20230129012624_VendorName")]
     partial class VendorName
     {
         /// <inheritdoc />
@@ -20,7 +20,7 @@ namespace DeploymentAppWithDb.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.0")
+                .HasAnnotation("ProductVersion", "7.0.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -52,6 +52,10 @@ namespace DeploymentAppWithDb.Migrations
 
                     b.Property<int>("UserID")
                         .HasColumnType("int");
+
+                    b.Property<string>("VendorName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
